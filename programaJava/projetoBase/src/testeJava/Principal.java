@@ -9,22 +9,27 @@ public class Principal {
 		
 		Aluno a1= new Aluno();//instancia objeto 
 		String nome = JOptionPane.showInputDialog("Entre c o nome");
-		String nota1 = JOptionPane.showInputDialog("Entre c a primeira nota");
-		String nota2 = JOptionPane.showInputDialog("Entre c a segunda nota");
-		String nota3 = JOptionPane.showInputDialog("Entre c a terceira nota");
-		String nota4 = JOptionPane.showInputDialog("Entre c a quarta nota");
-		String disciplina1 = JOptionPane.showInputDialog("Entre c a disciplina1");
-
-	
+		
 	    a1.setNome(nome);
-		a1.getDisciplina().setNota1(Double.parseDouble(nota1));
-		a1.getDisciplina().setNota2(Double.parseDouble(nota2));
-		a1.getDisciplina().setNota3(Double.parseDouble(nota3));
-		a1.getDisciplina().setNota4(Double.parseDouble(nota4));
+		Disciplina disciplina1 = new Disciplina();
+		disciplina1.setDisciplina("Banco de dados");
+		disciplina1.setNota(90);
+
+		//cria objeto
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Matemática");
+		disciplina2.setNota(80);
 		
-		a1.getDisciplina().setDisciplina1(disciplina1);
 		
-	
+		Disciplina disciplina3 = new Disciplina();
+		disciplina3.setDisciplina("Geografia");
+		disciplina3.setNota(97);
+		
+		//add o objeto na lista	
+		a1.getDisciplina().add(disciplina1);
+		a1.getDisciplina().add(disciplina2);
+		a1.getDisciplina().add(disciplina3);
+		
 		
 		System.out.println("A média é:"+a1.getMediaNota());
 		System.out.println("resultado....:"+ (a1.getAlunoAprovado() ? "aprovado" : "reprovado"));

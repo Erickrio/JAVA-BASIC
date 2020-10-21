@@ -1,20 +1,23 @@
 package testeJava;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aluno {
 
 private String nome;
 
-//referencia disciplina 
-private Disciplina disciplina = new Disciplina();
+//referencia disciplina  - Lista disciplina
+private List<Disciplina> disciplinas = new ArrayList();
 
 
-public Disciplina getDisciplina() {
-	return disciplina;
+	public List<Disciplina> getDisciplina() {
+	return disciplinas;
 }
 
 
-public void setDisciplina(Disciplina disciplina) {
-	this.disciplina = disciplina;
+public void setDisciplina(List<Disciplina> disciplina) {
+	this.disciplinas = disciplina;
 }
 
 
@@ -31,10 +34,15 @@ public void setDisciplina(Disciplina disciplina) {
 		this.nome = nome;
 	}
 
-	 
-	public double getMediaNota(){
-		return (disciplina.getNota1() + disciplina.getNota2() + 
-				disciplina.getNota3() + disciplina.getNota4()) /4 ;
+	//pega itém por item e percorre a lista 
+	public double getMediaNota() {
+		double somaNotas = 0.0;
+		for (Disciplina disciplina : disciplinas) {
+
+			somaNotas += disciplina.getNota();
+		}
+		//torna dinâmico p quantos objetos estiver na lista
+		return somaNotas / disciplinas.size();
 	}
 	
 	
@@ -58,9 +66,12 @@ public void setDisciplina(Disciplina disciplina) {
 
 
 
+
+
+
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", disciplina=" + disciplina + "]";
+		return "Aluno [nome=" + nome + ", disciplina=" + disciplinas + "]";
 	}
 
 
@@ -72,22 +83,8 @@ public void setDisciplina(Disciplina disciplina) {
 		return result;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Aluno other = (Aluno) obj;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		return true;
-	}
+	
+	
 	
 	
 	
