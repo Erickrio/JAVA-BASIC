@@ -9,27 +9,23 @@ public class Principal {
 		
 		Aluno a1= new Aluno();//instancia objeto 
 		String nome = JOptionPane.showInputDialog("Entre c o nome");
+        a1.setNome(nome);
 		
-	    a1.setNome(nome);
-		Disciplina disciplina1 = new Disciplina();
-		disciplina1.setDisciplina("Banco de dados");
-		disciplina1.setNota(90);
-
-		//cria objeto
-		Disciplina disciplina2 = new Disciplina();
-		disciplina2.setDisciplina("Matemática");
-		disciplina2.setNota(80);
-		
-		
-		Disciplina disciplina3 = new Disciplina();
-		disciplina3.setDisciplina("Geografia");
-		disciplina3.setNota(97);
-		
-		//add o objeto na lista	
-		a1.getDisciplina().add(disciplina1);
-		a1.getDisciplina().add(disciplina2);
-		a1.getDisciplina().add(disciplina3);
-		
+        //tornando nota dinamica das disciplinas
+        
+		for (int i = 1; i <= 4; i++) {
+			String nomeDisciplina = JOptionPane.showInputDialog("NOME da disciplina"+i+"?");
+			String notaDisciplina = JOptionPane.showInputDialog("NOTA disciplina"+i+"?");
+			Disciplina disciplina = new Disciplina();
+			//seta a disciplina e informa o que o usuário digitou
+			disciplina.setDisciplina(nomeDisciplina);
+			//pega a disciplina e seta a nota
+			//faz a conversão do tipo double
+			disciplina.setNota(Double.valueOf(notaDisciplina));
+			//pega a diciplina add
+			a1.getDisciplina().add(disciplina);
+			
+		}
 		
 		System.out.println("A média é:"+a1.getMediaNota());
 		System.out.println("resultado....:"+ (a1.getAlunoAprovado() ? "aprovado" : "reprovado"));
