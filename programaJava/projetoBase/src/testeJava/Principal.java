@@ -27,6 +27,13 @@ public class Principal {
 			
 		}
 		
+		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
+		if(escolha == 0){ // public static final int YES_OPTION = 0;
+			//Pega a String do disciplinaRemover e converte para o indice a ser removido e passa o disciolinaRemover
+			String disciplinaRemover = 
+					JOptionPane.showInputDialog("QUal é a disciplina? 1 ao 4");
+			a1.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue()-1);//intValue() - recebe o index
+		}
 		System.out.println("A média é:"+a1.getMediaNota());
 		System.out.println("resultado....:"+ (a1.getAlunoAprovado() ? "aprovado" : "reprovado"));
 		System.out.println("resultado....:"+  a1.getAlunoAprovado2());
