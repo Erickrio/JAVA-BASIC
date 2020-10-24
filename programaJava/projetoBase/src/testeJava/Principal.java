@@ -54,13 +54,15 @@ public class Principal {
 		//percorre a lista de alunos
 		for (Aluno a1 : alunos) {
 			
-			
+			//procurando um aluno na lista e calcula a média
+			if(a1.getNome().equalsIgnoreCase("erick")){
 			System.out.println("A média é:"+a1.getMediaNota());
 			System.out.println("resultado....:"+ (a1.getAlunoAprovado() ? "aprovado" : "reprovado"));
 			System.out.println("resultado....:"+  a1.getAlunoAprovado2());	
 			System.out.println(a1.toString());
-
-		}
+            break;
+			  }
+			}
 		
 
 		
