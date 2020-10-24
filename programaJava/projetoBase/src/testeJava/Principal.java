@@ -1,14 +1,21 @@
 package testeJava;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 public class Principal {
-	
-	
+
 	public static void main (String [] args){
 		
+		//instancia uma lista de alunos
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		
+		for(int qtd =1 ; qtd <=2;qtd++) {
+		
 		Aluno a1= new Aluno();//instancia objeto 
-		String nome = JOptionPane.showInputDialog("Entre c o nome");
+		String nome = JOptionPane.showInputDialog("Entre c o nome" +qtd);
         a1.setNome(nome);
 		
         //tornando nota dinamica das disciplinas
@@ -38,27 +45,39 @@ public class Principal {
 			a1.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue()-posicao );//intValue() - recebe o index
 			posicao ++;
 			continuarRemover = JOptionPane.showConfirmDialog(null, "continuar remover");
-		} 
+		  } 
 		}
-		System.out.println("A média é:"+a1.getMediaNota());
-		System.out.println("resultado....:"+ (a1.getAlunoAprovado() ? "aprovado" : "reprovado"));
-		System.out.println("resultado....:"+  a1.getAlunoAprovado2());
+		//final do for add esse aluno
+		alunos.add(a1);
 		
-		System.out.println(a1.toString());
+    }
+		//percorre a lista de alunos
+		for (Aluno a1 : alunos) {
+			
+			
+			System.out.println("A média é:"+a1.getMediaNota());
+			System.out.println("resultado....:"+ (a1.getAlunoAprovado() ? "aprovado" : "reprovado"));
+			System.out.println("resultado....:"+  a1.getAlunoAprovado2());	
+			System.out.println(a1.toString());
+
+		}
 		
+
 		
-		//diferenciar e comparar objetos - Equals e HashCode 
-		Aluno a2 = new Aluno();
-		a2.setNome("joão");
-		a1.setNome("joão");
-		
-		//para comparar sobscreva método hashcode e equals - class ALuno
+/*	//para comparar sobscreva método hashcode e equals - class ALuno
 		if (a1.equals(a2)){
 			System.out.println("nomes iguais");
 		} else {
 			System.out.println("nomes diferentes");
 		}
 		
+		//diferenciar e comparar objetos - Equals e HashCode 
+		Aluno a2 = new Aluno();
+		a2.setNome("joão");
+		a1.setNome("joão");
+		
+
+   */
 		
 		
 	}
