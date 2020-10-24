@@ -55,18 +55,17 @@ public void setDisciplina(List<Disciplina> disciplina) {
 		}
 	}
 	
-	public String getAlunoAprovado2(){
+	//Método que verifica se ao aluno foi aprovado ou não ou se está em recuperação
+	public String getAlunoAprovado2() {
 		double media = this.getMediaNota();
-		if (media >= 70){
+		if (media >= 50) {
+			return "Aluno em recuperação";
+		} else if (media >= 70) {
 			return "Aprovado";
-		}else{
+		} else {
 			return "reprovado";
 		}
 	}
-
-
-
-
 
 
 	@Override
@@ -83,9 +82,6 @@ public void setDisciplina(List<Disciplina> disciplina) {
 		return result;
 	}
 
-	
-	
-	
-	
+
 	
 }
