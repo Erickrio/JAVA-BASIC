@@ -53,18 +53,30 @@ public class Principal {
     }
 		//percorre a lista de alunos
 		for (Aluno a1 : alunos) {
-			
-			//procurando um aluno na lista e calcula a média
-			if(a1.getNome().equalsIgnoreCase("erick")){
-			System.out.println("A média é:"+a1.getMediaNota());
-			System.out.println("resultado....:"+ (a1.getAlunoAprovado() ? "aprovado" : "reprovado"));
-			System.out.println("resultado....:"+  a1.getAlunoAprovado2());	
-			System.out.println(a1.toString());
-            break;
-			  }
-			}
-		
 
+			// procurando um aluno na lista e calcula a média
+			if (a1.getNome().equalsIgnoreCase("erick")) {
+				alunos.remove(a1);//procura e remove o aluno da lista
+				break;//condição sendo verdadeira,sai imediatamente
+			} else {
+				System.out.println("A média é:" + a1.getMediaNota());
+				System.out.println("resultado....:" + (a1.getAlunoAprovado() ? "aprovado" : "reprovado"));
+				System.out.println("resultado....:" + a1.getAlunoAprovado2());
+				System.out.println(a1.toString());
+			}
+		}
+		
+		
+		for (Aluno a1 : alunos) {
+			System.out.println("Alunos que sobraram na Lista");
+			System.out.println(a1.getNome());
+			System.out.println("Suas matérias são");
+			//percorre disciplina por aluno
+			for (Disciplina disciplina : a1.getDisciplina() ) {
+				System.out.println(disciplina.getDisciplina());
+			}
+		}
+		
 		
 /*	//para comparar sobscreva método hashcode e equals - class ALuno
 		if (a1.equals(a2)){
@@ -77,6 +89,11 @@ public class Principal {
 		Aluno a2 = new Aluno();
 		a2.setNome("joão");
 		a1.setNome("joão");
+		
+		System.out.println("A média é:"+a1.getMediaNota());
+			System.out.println("resultado....:"+ (a1.getAlunoAprovado() ? "aprovado" : "reprovado"));
+			System.out.println("resultado....:"+  a1.getAlunoAprovado2());	
+			System.out.println(a1.toString());
 		
 
    */
