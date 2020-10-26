@@ -12,7 +12,7 @@ public class Principal {
 		//instancia uma lista de alunos
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
-		for(int qtd =1 ; qtd <=2;qtd++) {
+		for(int qtd =1 ; qtd <=1;qtd++) {
 		
 		Aluno a1= new Aluno();//instancia objeto 
 		String nome = JOptionPane.showInputDialog("Entre c o nome" +qtd);
@@ -51,7 +51,28 @@ public class Principal {
 		alunos.add(a1);
 		
     }
-		//percorre a lista de alunos
+		//percorrendo listas pelas posições.[0 a 1]
+		for (int pos =0;pos < alunos.size();pos++){
+			//pega a lista de alunos e recupera(get por posição)
+			Aluno aluno = alunos.get(pos);//p cada posição do tamanho da lista,pega o aluno.
+			System.out.println("ALuno"+aluno.getNome());
+			System.out.println("media do aluno"+aluno.getMediaNota());
+			System.out.println("media do aluno"+aluno.getAlunoAprovado2());
+			System.out.println("*******************************************************************************");
+			
+			//aluno da posição para a disciplina
+			for (Disciplina disc : aluno.getDisciplina().size()) {
+				System.out.println("Matéria = "+disc.getDisciplina()+"Nota="+disc.getDisciplina());
+				
+			}
+		}
+		
+		
+/*	
+ * 
+ * 
+ * 
+ * //percorre a lista de alunos
 		for (Aluno a1 : alunos) {
 
 			// procurando um aluno na lista e calcula a média
@@ -77,8 +98,10 @@ public class Principal {
 			}
 		}
 		
-		
-/*	//para comparar sobscreva método hashcode e equals - class ALuno
+ * 
+ * 
+ * 
+ * //para comparar sobscreva método hashcode e equals - class ALuno
 		if (a1.equals(a2)){
 			System.out.println("nomes iguais");
 		} else {
