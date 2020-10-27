@@ -59,11 +59,14 @@ public void setDisciplina(List<Disciplina> disciplina) {
 	public String getAlunoAprovado2() {
 		double media = this.getMediaNota();
 		if (media >= 50) {
-			return "Aluno em recuperação";
-		} else if (media >= 70) {
-			return "Aprovado";
+			if (media >= 70) {
+				return "Aluno está aprovado";
+			} else {
+				return "Aluno em recuperação";
+			}
 		} else {
-			return "reprovado";
+			return "Aluno aprovado";
+
 		}
 	}
 

@@ -12,15 +12,15 @@ public class Principal {
 		//instancia uma lista de alunos
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
-		for(int qtd =1 ; qtd <=1;qtd++) {
+		for(int qtd =1 ; qtd <=2;qtd++) {
 		
 		Aluno a1= new Aluno();//instancia objeto 
 		String nome = JOptionPane.showInputDialog("Entre c o nome" +qtd);
         a1.setNome(nome);
 		
-        //tornando nota dinamica das disciplinas
+        //tornando nota dinamica as disciplinas
         
-		for (int i = 1; i <= 4; i++) {
+		for (int i = 1; i <= 1; i++) {
 			String nomeDisciplina = JOptionPane.showInputDialog("NOME da disciplina"+i+"?");
 			String notaDisciplina = JOptionPane.showInputDialog("NOTA disciplina"+i+"?");
 			Disciplina disciplina = new Disciplina();
@@ -55,16 +55,36 @@ public class Principal {
 		for (int pos =0;pos < alunos.size();pos++){
 			//pega a lista de alunos e recupera(get por posição)
 			Aluno aluno = alunos.get(pos);//p cada posição do tamanho da lista,pega o aluno.
+			//pega o aluno erick
+			if(aluno.getNome().equalsIgnoreCase("erick")){
+				Aluno trocar = new Aluno();
+				trocar.setNome("Aluno foi trocado");
+				
+				Disciplina disciplina = new Disciplina();
+				disciplina.setDisciplina("Matemática");
+				disciplina.setNota(96);
+				
+				trocar.getDisciplina().add(disciplina);
+				
+				//substituir o erick por trocar
+				
+				alunos.set(pos, trocar); 
+				aluno = alunos.get(pos);
+				
+			}
+			
 			System.out.println("ALuno"+aluno.getNome());
 			System.out.println("media do aluno"+aluno.getMediaNota());
 			System.out.println("media do aluno"+aluno.getAlunoAprovado2());
 			System.out.println("*******************************************************************************");
 			
 			//aluno da posição para a disciplina
-			for (Disciplina disc : aluno.getDisciplina().size()) {
+			for (Disciplina disc : aluno.getDisciplina()) {
 				System.out.println("Matéria = "+disc.getDisciplina()+"Nota="+disc.getDisciplina());
 				
 			}
+			
+			//Substituindo um aluno na lista
 		}
 		
 		
