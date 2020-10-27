@@ -3,6 +3,8 @@ package testeJava;
 import java.util.ArrayList;
 import java.util.List;
 
+import cursojava.constantes.StatusAluno;
+
 public class Aluno {
 
 private String nome;
@@ -60,12 +62,13 @@ public void setDisciplina(List<Disciplina> disciplina) {
 		double media = this.getMediaNota();
 		if (media >= 50) {
 			if (media >= 70) {
-				return "Aluno está aprovado";
+				//uso de constantes
+				return StatusAluno.APROVADO;
 			} else {
-				return "Aluno em recuperação";
+				return StatusAluno.RECUPERACAO;
 			}
 		} else {
-			return "Aluno aprovado";
+			return StatusAluno.REPROVADO;
 
 		}
 	}
